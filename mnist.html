@@ -1,0 +1,29 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MNIST</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.1"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@1.0.0"> </script>
+  </head>
+  <body>
+    <h1>you working?</h1>
+        <!-- <img id="image" alt="cat laying down" src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Arthur%2C_the_cat.jpg" crossorigin="anonymous"/> -->
+	<img id="image" alt="test" src="test.jpg" crossorigin="anonymous"/>
+	<!-- <img id="image" alt="image not found" src="https://danielhallinan-ml.s3.us-east-2.amazonaws.com/test_image_1.jpg" crossorigin="anonymous"/> -->
+    <script>
+      const img = document.getElementById('image');
+
+      const predictImage = async () => {
+        console.log("Model loading...");
+        const model = await mobilenet.load();
+        console.log("Model is loaded!")
+
+        const predictions = await model.classify(img);
+        console.log('Predictions: ', predictions);
+      }
+      predictImage();
+    </script>
+  </body>
+</html>
